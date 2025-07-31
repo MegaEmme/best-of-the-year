@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Detail</title>
+</head>
+<body>
+    <main th.object="${films[id]}">
+        <h1>Dettaglio film: </h1>
+        <h2>Titolo: [[${films[id -1].title}]]</h2>
+        <h2>Id: [[*{id}]]</h2>
+    </main>
+</body>
+</html>

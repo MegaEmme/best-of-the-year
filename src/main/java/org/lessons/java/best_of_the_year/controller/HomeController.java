@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -58,6 +59,48 @@ public class HomeController {
         model.addAttribute("songs", listaCanzoni);
 
         return "songs";
+    }
+
+    @GetMapping("/movies/{id}")
+    public String getMovieDetail(@PathVariable("id") int movieId, Model model) {
+
+        Movie filmUno = new Movie(1, "Matrix");
+        Movie filmDue = new Movie(2, "Titanic");
+        Movie filmTre = new Movie(3, "Lotr");
+        Movie filmQuattro = new Movie(4, "Harry Potter");
+
+        ArrayList<Movie> listaFilm = new ArrayList<>();
+
+        listaFilm.add(filmUno);
+        listaFilm.add(filmDue);
+        listaFilm.add(filmTre);
+        listaFilm.add(filmQuattro);
+
+        model.addAttribute("films", listaFilm);
+        model.addAttribute("id", movieId);
+
+        return "movieDetail";
+    }
+
+    @GetMapping("/songs/{id}")
+    public String getSongDetail(@PathVariable("id") int songId, Model model) {
+
+        Song canzoneUno = new Song(1, "La guerra di Piero");
+        Song canzoneDue = new Song(2, "Help");
+        Song canzoneTre = new Song(3, "Satisfaction");
+        Song canzoneQuattro = new Song(4, "Smoke on the Water");
+
+        ArrayList<Song> listaCanzoni = new ArrayList<>();
+
+        listaCanzoni.add(canzoneUno);
+        listaCanzoni.add(canzoneDue);
+        listaCanzoni.add(canzoneTre);
+        listaCanzoni.add(canzoneQuattro);
+
+        model.addAttribute("songs", listaCanzoni);
+        model.addAttribute("id", songId);
+
+        return "songDetail";
     }
 
 }

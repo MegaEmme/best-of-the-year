@@ -9,8 +9,7 @@
     <h1>Lista Film </h1>
     <th:block th:each="movie : ${films}">
         <div th:object="${movie}">
-            <h2 th:text=|*{id}|/>
-            <h2 th:text="*{title}"/>
+            <h2>Id: [[*{id}]] - Titolo: [[*{title}]]</h2>
         </div>
     </th:block>
 </body>
