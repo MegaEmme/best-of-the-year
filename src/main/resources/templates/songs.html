@@ -16,6 +16,7 @@
             <div th:object="${song}">
                 <h2 th:text=|*{id}|/>
                 <h2 th:text="*{title}"/>
+                <a class="btn btn.danger" th:href="@{/songs/{id}(id=*{id})}">Dettaglio della Canzone</a>
             </div>
         </th:block>
     </main>

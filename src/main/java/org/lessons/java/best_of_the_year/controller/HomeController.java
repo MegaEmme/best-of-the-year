@@ -63,6 +63,8 @@ public class HomeController {
     @GetMapping("/movies/{id}")
     public String getMovieDetail(@PathVariable("id") int movieId, Model model) {
 
+        Movie foundMovie = null;
+
         Movie filmUno = new Movie(1, "Matrix");
         Movie filmDue = new Movie(2, "Titanic");
         Movie filmTre = new Movie(3, "Lotr");
@@ -75,14 +77,22 @@ public class HomeController {
         listaFilm.add(filmTre);
         listaFilm.add(filmQuattro);
 
-        model.addAttribute("films", listaFilm);
-        model.addAttribute("id", movieId);
+        for (Movie movie : listaFilm) {
+            if (movie.getId() == movieId) {
+                foundMovie = movie;
+                break;
+            }
+        }
+
+        model.addAttribute("movieDetail", foundMovie);
 
         return "movieDetail";
     }
 
     @GetMapping("/songs/{id}")
     public String getSongDetail(@PathVariable("id") int songId, Model model) {
+
+        Song foundSong = null;
 
         Song canzoneUno = new Song(1, "La guerra di Piero");
         Song canzoneDue = new Song(2, "Help");
@@ -96,8 +106,14 @@ public class HomeController {
         listaCanzoni.add(canzoneTre);
         listaCanzoni.add(canzoneQuattro);
 
-        model.addAttribute("songs", listaCanzoni);
-        model.addAttribute("id", songId);
+        for (Song song : listaCanzoni) {
+            if (song.getId() == songId) {
+                foundSong = song;
+                break;
+            }
+        }
+
+        model.addAttribute("songDetail", foundSong);
 
         return "songDetail";
     }
