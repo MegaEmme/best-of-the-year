@@ -7,11 +7,21 @@
     <th:block th:replace="~{ fragments :: styles}"></th:block>
 </head>
 <body>
-    <header>
+    <header class="mb-4">
         <th:block th:insert="~{ fragments :: navbar}"></th:block>
     </header>
-    <h1>Best of the year by: </h1>
-    <h1 th:text="${name}"/>
+    <div class="container text-center">
+        <h1>Best of the year by: </h1>
+        <h1 th:text="${name}"/>
+    </div>
+    <div class="banner d-flex py-3 mb-3">
+        <img class="img-fluid m-auto w-50 h-50" th:src="@{img/sfondo-best-of-the-year.png}" alt="jumbotron_sito">
+    </div>
+    <div class="container">
+    <h2 class="text-center mb-3">Descrizione Sito:</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis, dolor architecto atque delectus animi? Soluta, quam. Error rerum ex officiis tempora modi dolore beatae cum, dolores odit. Ipsam, dicta! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid tempora recusandae provident quaerat quibusdam voluptatem impedit blanditiis quod, facilis necessitatibus possimus. Ex iusto natus aperiam necessitatibus possimus rerum dicta hic. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde adipisci distinctio nam sequi perspiciatis praesentium eos, facilis nobis. Porro, autem labore repellendus inventore ad minus assumenda non aliquam quasi facere. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem eos, incidunt vel quisquam fugiat inventore molestiae? Dignissimos magnam obcaecati qui eos, voluptatum tempore officiis dolor beatae cupiditate optio. Est, deleniti?</p>
+    </div>
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
