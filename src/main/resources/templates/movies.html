@@ -14,7 +14,9 @@
         <h1>Lista Film: </h1>
         <th:block th:each="movie : ${films}">
             <div th:object="${movie}">
-                <h2>Id: [[*{id}]] - Titolo: [[*{title}]]</h2>
+                <ul>
+                    <li>Id: [[*{id}]] - Titolo: [[*{title}]]</li>
+                </ul>
                 <a class="btn btn.danger" th:href="@{/movies/{id}(id=*{id})}">Dettaglio del film</a>
             </div>
             
